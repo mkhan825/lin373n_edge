@@ -1,5 +1,4 @@
 #LSTM with adam
-from google.colab import drive
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
@@ -7,12 +6,11 @@ import os
 from keras.models import Sequential
 from keras import layers
 
-drive.mount('/content/drive')
 
-filepath_dict = {'yelp':   '/content/drive/My Drive/LIN373N/sentiment-labelled-sentences/yelp_labelled.txt',
-                 'amazon': '/content/drive/My Drive/LIN373N/sentiment-labelled-sentences/amazon_cells_labelled.txt',
-                 'imdb':   '/content/drive/My Drive/LIN373N/sentiment-labelled-sentences/imdb_labelled.txt'}
-
+filepath_dict = {'yelp':   'sentiment-labelled-sentences/yelp_labelled.txt',
+                 'amazon': 'sentiment-labelled-sentences/amazon_cells_labelled.txt',
+                 'imdb':   'sentiment-labelled-sentences/imdb_labelled.txt'}
+                 
 df_list = []
 for source, filepath in filepath_dict.items():
     df = pd.read_csv(filepath, names=['sentence', 'label'], sep='\t')

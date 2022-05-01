@@ -6,7 +6,7 @@ from transformers import Wav2Vec2ForCTC, Wav2Vec2Tokenizer
 tokenizer = Wav2Vec2Tokenizer.from_pretrained("facebook/wav2vec2-base-960h")
 model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
 #loading the audio file
-speech, rate = librosa.load('/content/drive/My Drive/LIN373N/burn.wav',sr=16000)
+speech, rate = librosa.load('burn.wav',sr=16000)
 input_values = tokenizer(speech, return_tensors = 'pt').input_values
 #Store logits (non-normalized predictions)
 logits = model(input_values).logits
