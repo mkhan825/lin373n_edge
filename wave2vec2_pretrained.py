@@ -14,7 +14,7 @@ input_values = tokenizer(speech, return_tensors = 'pt').input_values
 print(input_values)
 # INIT LOGGERS
 starter, ender = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
-repetitions = 3
+repetitions = 100
 timings=np.zeros((repetitions,1))
 #GPU-WARM-UP
 for _ in range(10):
