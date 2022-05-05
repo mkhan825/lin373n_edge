@@ -1,0 +1,20 @@
+from jtop import jtop, JtopException
+
+with jtop() as jetson:
+  print(jetson.stats)
+  print(jetson.stats['Temp CPU'])
+  print(jetson.stats['Temp GPU'])
+  print(jetson.stats['power cur'])
+  print(jetson.stats['power avg'])
+  print(jetson.cpu['CPU1']['frq'])
+  print(jetson.cpu['CPU2']['frq'])
+  print(jetson.cpu['CPU3']['frq'])
+  print(jetson.cpu['CPU4']['frq'])
+  print(jetson.gpu['frq'])
+  print(jetson.power)
+  print(jetson.power[0]['cur'])
+  print(jetson.power[0]['avg'])
+  print(jetson.power[1]['5V GPU']['cur'])
+  print(jetson.power[1]['5V GPU']['avg'])
+  print(jetson.power[1]['5V CPU']['cur'])
+  print(jetson.power[1]['5V CPU']['avg'])
