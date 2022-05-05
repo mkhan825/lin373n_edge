@@ -19,7 +19,7 @@ timings=np.zeros((repetitions,1))
 #GPU-WARM-UP
 for _ in range(10):
     _ = model(input_values)
-
+inference = None
 for rep in range(repetitions):
   # Measure start time
   starter.record()
@@ -30,9 +30,7 @@ for rep in range(repetitions):
   curr_time = starter.elapsed_time(ender)
   timings[rep] = curr_time
 #Store logits (non-normalized predictions)
-predict = model(input_values) 
-print(predict)
-logits = predict.logits
+logits = inference.logits
 print(logits)
 #Store predicted id's
 predicted_ids = torch.argmax(logits, dim =-1)
