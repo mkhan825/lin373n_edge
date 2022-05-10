@@ -92,8 +92,19 @@ with jtop() as jetson:
   predicted_ids = torch.argmax(logits, dim =-1)
   #decode the audio to generate text
   transcriptions = tokenizer.decode(predicted_ids[0])
-  transcription_text = transcriptions.lower()
-  real_text = "some men aren't looking for anything logical like money they can't be bought bullied reasoned or negotiated with some men just want to watch the world burn"
+  real_text = "you either die a hero or you live long enough to see yourself become the villain"
+  comparison = transcriptions.lower()
+  arr1 = comparison.split()
+  arr2 = real_text.split()
+  count = 0
+  print(len(arr1))
+  print(len(arr2))
+  for i in range(len(arr1)):
+    if arr1[i] != arr2[i]:
+      count += 1
+  accuracy = ((len(arr1) - count)/(len(arr2)))
 
-  print("Predicted: ",transcription_text)
+  print("Predicted: ",transcriptions) 
   print("Actual: ", real_text)
+  print("Accuracy: ", accuracy)
+ 
